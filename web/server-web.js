@@ -19,13 +19,21 @@ app.set('view engine', '.hbs');
 
 /** Routes */
 app.get('/', (req, res) => {
-    res.render('home', {
-        users: listUsers(),
-        channels: listChannels(),
-        traits,
-        allCommands
-    })
-    ;
+
+    if (req.body.challenge !== undefined)
+    {
+        res.send(req.body.challenge);    
+    }
+    else
+    {
+        res.render('home', {
+            users: listUsers(),
+            channels: listChannels(),
+            traits,
+            allCommands
+        })
+        ;
+    }
 });
 
 /** Static Files */
