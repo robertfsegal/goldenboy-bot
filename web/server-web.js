@@ -36,6 +36,7 @@ app.post('/slack-challenge', (req, res) => {
 
 /** Static Files */
 app.use('/', express.static(__dirname + '/public'));
+app.use(express.json());
 
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
