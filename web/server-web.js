@@ -29,9 +29,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/slack-challenge', (req, res) => {
-    console.log(req.body);
+    const { body } = JSON.parse(req.body);
 
-    res.send(req.body.challenge);    
+    console.log(JSON.parse(body));
+
+    res.send(body.challenge);    
 });
 
 /** Static Files */
